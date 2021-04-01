@@ -46,3 +46,12 @@ def parse_loop0_ios(text):
         return match.group("loop0")
     else:
         return None
+
+def parse_ospf_neighbor_id_ios(text):
+    regex = re.compile(r"(?P<neighbor_id>\S+)\s+[0-255]\s+")
+    match = regex.search(text)
+
+    if match:
+        return match.group("neighbor_id")
+    else:
+        return None
